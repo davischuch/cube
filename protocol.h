@@ -4,7 +4,7 @@
 #include "image.h"
 #include <Windows.h>
 
-#define PORT "COM3";
+#define PORT "COM7";
 
 #define SNC  ('S'|0x80)
 #define ATX  ('X'|0x80)
@@ -21,7 +21,7 @@ public:
     ~protocol();               //destructor
     void getCube(image* cube); //get virtual image thru a pointer
     HANDLE open();             //create connection between intefaces
-    void send(char CID);       //send virtual image
+    int send(char CID);       //send virtual image
     void activate(char CID);   //activate image sent in the cube
     void clear();
     char in[2];  //command received

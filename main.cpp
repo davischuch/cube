@@ -9,10 +9,13 @@ void animationOne(image *cube, protocol *prot) {
     char resp;
     bool active = true, up = true;
 
+    cube->full(0);
     for (int intensity = 0; intensity < 16; intensity++) {
         cube->animationOne(intensity);
         prot->getCube(cube);
-        prot->send(intensity);
+        do {
+            int respSend = prot->send(intensity);
+        } while (respSend == -1);
     }
 
     while (active) {
@@ -51,6 +54,7 @@ void animationTwo(image *cube, protocol *prot) {
     char resp;
     bool active = true, up = true;
 
+    cube->full(0);
     for (int i = 0; i < 9; i++) {
         cube->animationTwo(i, size);
         prot->getCube(cube);

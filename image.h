@@ -8,8 +8,9 @@ public:
     image();
     ~image();
     int getCube(int x, int y, int z);
-    void animationOne(int intensity);
-    void animationTwo(int pos, int size);
+    void setIntensity(int intensity);
+    void drawCube(int pos, int size);
+    void full(int intensity);
 private:
     uint8_t matrix[8][8][8];
 };
